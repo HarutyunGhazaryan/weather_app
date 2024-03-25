@@ -46,16 +46,15 @@ export default {
         let cityAdded = ref(true);
         const currentInfo1 = reactive({});
 
-        currentInfo1.value = reactive(
-            JSON.parse(localStorage.getItem('currentInfo')),
-        );
-
-        onBeforeMount(() => {
-            setTimeout(() => {
-                const data = JSON.parse(localStorage.getItem('currentInfo'));
-                Object.assign(currentInfo1, data);
-            }, 0);
-        });
+        (currentInfo1.value = JSON.parse(localStorage.getItem('currentInfo'))),
+            onBeforeMount(() => {
+                setTimeout(() => {
+                    const data = JSON.parse(
+                        localStorage.getItem('currentInfo'),
+                    );
+                    Object.assign(currentInfo1, data);
+                }, 0);
+            });
 
         function loadDataFromLocalStorage() {
             setTimeout(() => {

@@ -25,7 +25,11 @@ export default {
     },
     computed: {
         placeholder() {
-            return this.yourCity ? 'Search city' : 'Your city';
+            return this.searchCity
+                ? 'Search city'
+                : this.yourCity
+                ? 'Search city'
+                : 'Your city';
         },
     },
     methods: {

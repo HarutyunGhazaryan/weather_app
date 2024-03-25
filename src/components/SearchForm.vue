@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit" class="form">
-        <my-input v-model="searchCity" ref="inputField" />
+        <my-input :yourCity="yourCity" v-model="searchCity" ref="inputField" />
         <my-button type="submit">Search</my-button>
     </form>
 </template>
@@ -17,6 +17,7 @@ export default {
         const searchCity = ref('');
         const inputField = ref(null);
         const refreshInterval = ref(null);
+        const yourCity = weatherStore.getYourCity;
         let submittedCity = '';
 
         const handleSubmit = () => {
@@ -43,6 +44,7 @@ export default {
             handleSubmit,
             inputField,
             handleRefresh,
+            yourCity,
         };
     },
 };
